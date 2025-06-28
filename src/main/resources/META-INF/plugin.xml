@@ -1,0 +1,106 @@
+<idea-plugin>
+    <id>com.krishnasony.apk-size-analyzer</id>
+    <name>APK Size Analyzer</name>
+    <vendor email="your.email@example.com" url="https://github.com/Krishnasony/ApkSizeAnalyzer">Krishna Sony</vendor>
+
+    <description><![CDATA[
+    APK Size Analyzer for Android Studio provides powerful tools to analyze and compare APK file sizes directly within your IDE.
+
+    Features:
+    • Compare APK files side by side
+    • Analyze size differences by folder and file type
+    • Integration with Android build process
+    • Visual charts and detailed breakdowns
+    • Gradle task integration for automated analysis
+    • Export analysis reports
+
+    Perfect for Android developers who want to optimize app size and track changes between builds.
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h3>Version 1.0.0</h3>
+    <ul>
+        <li>Initial release</li>
+        <li>APK comparison functionality</li>
+        <li>Size analysis by folder and file type</li>
+        <li>Integration with Android Studio</li>
+        <li>Gradle task support</li>
+    </ul>
+    ]]></change-notes>
+
+    <!-- Plugin compatibility -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.plugins.gradle</depends>
+
+    <resource-bundle>messages.ApkSizeAnalyzerBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Tool Window -->
+        <toolWindow id="APK Size Analyzer" 
+                   secondary="false" 
+                   anchor="bottom" 
+                   icon="/icons/apk_analyzer_13.svg"
+                   factoryClass="com.krishnasony.apksizeanalyzer.toolwindow.ApkAnalyzerToolWindowFactory"/>
+
+        <!-- Actions -->
+        <group id="ApkSizeAnalyzer.Menu" text="APK Size Analyzer" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <action id="ApkSizeAnalyzer.CompareApks" 
+                   class="com.krishnasony.apksizeanalyzer.actions.CompareApksAction" 
+                   text="Compare APK Files" 
+                   description="Compare two APK files and analyze size differences"/>
+            <action id="ApkSizeAnalyzer.AnalyzeCurrentApk" 
+                   class="com.krishnasony.apksizeanalyzer.actions.AnalyzeCurrentApkAction" 
+                   text="Analyze Current APK" 
+                   description="Analyze the current project's APK"/>
+            <separator/>
+            <action id="ApkSizeAnalyzer.ExportAnalysis" 
+                   class="com.krishnasony.apksizeanalyzer.actions.ExportAnalysisAction" 
+                   text="Export Analysis Results" 
+                   description="Export analysis results to HTML, CSV, or JSON"/>
+            <separator/>
+            <action id="ApkSizeAnalyzer.GenerateSampleApk" 
+                   class="com.krishnasony.apksizeanalyzer.actions.GenerateSampleApkAction" 
+                   text="Generate Sample APK Files" 
+                   description="Generate sample APK files for testing the analyzer"/>
+        </group>
+
+        <!-- File Type -->
+        <fileType name="APK" 
+                 implementationClass="com.krishnasony.apksizeanalyzer.file.ApkFileType" 
+                 fieldName="INSTANCE" 
+                 language="APK" 
+                 extensions="apk"/>
+
+        <!-- Services -->
+        <projectService serviceImplementation="com.krishnasony.apksizeanalyzer.services.ApkAnalyzerService"/>
+        <projectService serviceImplementation="com.krishnasony.apksizeanalyzer.settings.ApkAnalyzerSettings"/>
+
+        <!-- Settings -->
+        <projectConfigurable parentId="tools" 
+                           instance="com.krishnasony.apksizeanalyzer.settings.ApkAnalyzerConfigurable"
+                           id="apk.size.analyzer.settings"
+                           displayName="APK Size Analyzer"/>
+
+        <!-- Gradle Integration -->
+        <externalSystemTaskNotificationListener 
+            implementation="com.krishnasony.apksizeanalyzer.gradle.GradleBuildListener"/>
+
+        <!-- Notifications -->
+        <notificationGroup id="APK Size Analyzer" 
+                          displayType="BALLOON" 
+                          key="notification.group.apk.analyzer"/>
+    </extensions>
+
+    <actions>
+        <!-- Context menu for APK files -->
+        <action id="ApkSizeAnalyzer.AnalyzeApkFile" 
+               class="com.krishnasony.apksizeanalyzer.actions.AnalyzeApkFileAction" 
+               text="Analyze APK Size" 
+               description="Analyze the size of this APK file">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

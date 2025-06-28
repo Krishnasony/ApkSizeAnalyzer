@@ -1,0 +1,40 @@
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code
+.vscode/
+!.vscode/tasks.json
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Plugin development
+idea-sandbox/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Archives
+*.zip
+*.jar
+!gradle-wrapper.jar
+
+# Sensitive information
+local.properties
+gradle.properties
