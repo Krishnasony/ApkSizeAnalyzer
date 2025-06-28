@@ -9,8 +9,8 @@
 
 ## 🚧 Development Status
 
-🚧 **Ready for Release** - Plugin development is complete and ready for publication  
-🚧 **Awaiting GitHub Setup** - Source code ready to be published  
+✅ **Published on GitHub** - Source code is now publicly available  
+🚧 **GitHub Release** - Creating release with plugin ZIP  
 🚧 **Marketplace Ready** - Plugin package ready for JetBrains submission  
 ✅ **Fully Tested** - All features working and documented
 
@@ -53,7 +53,7 @@
 
 1. Build the plugin locally:
    ```bash
-   git clone [REPOSITORY_URL_WHEN_PUBLISHED]
+   git clone https://github.com/Krishnasony/ApkSizeAnalyzer.git
    cd ApkSizeAnalyzer
    ./gradlew buildPlugin
    ```
@@ -73,7 +73,7 @@
 
 ### Development Setup
 ```bash
-git clone https://github.com/krishnasony/ApkSizeAnalyzer.git
+git clone https://github.com/Krishnasony/ApkSizeAnalyzer.git
 cd ApkSizeAnalyzer
 ./gradlew runIde
 ```
@@ -245,7 +245,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **📦 JetBrains Marketplace**: *Pending Approval* (Search "APK Size Analyzer")
-- **📂 GitHub Repository**: [Source Code & Releases](https://github.com/krishnasony/ApkSizeAnalyzer)
+- **📂 GitHub Repository**: [Source Code & Releases](https://github.com/Krishnasony/ApkSizeAnalyzer)
 - **📋 Issue Tracker**: [Bug Reports & Feature Requests](../../issues)
 - **💬 Discussions**: [Community Forum](../../discussions)
 - **📚 Documentation**: [Wiki & Guides](../../wiki)
