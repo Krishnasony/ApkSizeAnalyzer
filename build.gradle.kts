@@ -5,14 +5,15 @@ plugins {
 }
 
 group = "com.krishnasony"
-version = "1.0.1"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
+    // Kotlin stdlib is automatically provided by IntelliJ Platform
+    // implementation("org.jetbrains.kotlin:kotlin-stdlib") - removed per plugin recommendations
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("org.apache.commons:commons-compress:1.26.1")
     testImplementation("junit:junit:4.13.2")
@@ -26,7 +27,8 @@ intellij {
     
     plugins.set(listOf(
         "java",
-        "gradle"
+        "gradle",
+        "org.jetbrains.plugins.gradle"
     ))
 }
 

@@ -5,6 +5,26 @@ All notable changes to the APK Size Analyzer plugin will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2025-06-29
+
+### Fixed
+- Cleaned up code warnings and unused parameters
+- Removed conflicting Kotlin stdlib dependency per IntelliJ Platform guidelines
+- Fixed unchecked cast warnings with proper suppression
+- Improved test assertions for better reliability
+- Final polish for marketplace compatibility
+
+## [1.0.2] - 2025-06-29
+
+### Fixed
+- Fixed deprecated API usage for marketplace compliance
+- Replaced deprecated Messages.showChooseDialog with Messages.showDialog
+- Replaced deprecated FileChooserDescriptorFactory with FileChooserDescriptor
+- Temporarily disabled GradleBuildListener to avoid compatibility issues
+
+### Changed
+- Updated change notes to match actual version
+
 ## [1.0.1] - 2025-06-29
 
 ### Added

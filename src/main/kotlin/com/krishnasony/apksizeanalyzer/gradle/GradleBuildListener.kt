@@ -1,32 +1,21 @@
 package com.krishnasony.apksizeanalyzer.gradle
 
 import com.intellij.openapi.components.service
-import com.intellij.openapi.externalSystem.model.task.ExternalSystemTaskId
-import com.intellij.openapi.externalSystem.model.task.ExternalSystemTaskNotificationListenerAdapter
-import com.intellij.openapi.externalSystem.model.task.ExternalSystemTaskType
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindowManager
 import com.krishnasony.apksizeanalyzer.services.ApkAnalyzerService
-import org.jetbrains.plugins.gradle.util.GradleConstants
 import java.io.File
 
 /**
  * Gradle task listener for automatic APK analysis after builds
+ * Note: Temporarily disabled due to API compatibility issues
  */
-class GradleBuildListener : ExternalSystemTaskNotificationListenerAdapter() {
+class GradleBuildListener {
     
-    override fun onSuccess(id: ExternalSystemTaskId) {
-        if (id.projectSystemId != GradleConstants.SYSTEM_ID) return
-        
-        val project = id.findProject() ?: return
-        
-        // For Gradle builds, check if APK was likely built
-        if (id.type == ExternalSystemTaskType.RESOLVE_PROJECT) {
-            analyzeBuiltApk(project)
-        }
-    }
+    // This class is currently disabled to avoid compatibility issues
+    // Can be re-enabled when a stable replacement for ExternalSystemTaskNotificationListenerAdapter is available
     
-    private fun analyzeBuiltApk(project: Project) {
+    fun analyzeBuiltApk(project: Project) {
         val service = project.service<ApkAnalyzerService>()
         val apkFile = service.getCurrentProjectApk()
         

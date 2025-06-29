@@ -3,7 +3,7 @@ package com.krishnasony.apksizeanalyzer.ui
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.service
 import com.intellij.openapi.fileChooser.FileChooser
-import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
+import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
@@ -327,7 +327,7 @@ class ApkAnalyzerToolWindow(private val project: Project) {
     }
     
     private fun selectAndAnalyzeApk() {
-        val descriptor = FileChooserDescriptorFactory.createSingleFileDescriptor()
+        val descriptor = FileChooserDescriptor(true, false, false, false, false, false)
         descriptor.title = "Select APK File to Analyze"
         descriptor.description = "Choose an APK file for size analysis"
         
@@ -365,7 +365,7 @@ class ApkAnalyzerToolWindow(private val project: Project) {
     
     private fun selectAndCompareApks() {
         // Create descriptor for APK files
-        val descriptor = FileChooserDescriptorFactory.createSingleFileDescriptor()
+        val descriptor = FileChooserDescriptor(true, false, false, false, false, false)
         descriptor.withFileFilter { file ->
             file.extension?.lowercase() == "apk" || file.isDirectory
         }
@@ -725,7 +725,9 @@ class ApkAnalyzerToolWindow(private val project: Project) {
             override fun drop(dtde: DropTargetDropEvent) {
                 try {
                     dtde.acceptDrop(DnDConstants.ACTION_COPY)
-                    val droppedFiles = dtde.transferable.getTransferData(DataFlavor.javaFileListFlavor) as List<File>
+                    val transferData = dtde.transferable.getTransferData(DataFlavor.javaFileListFlavor)
+                    @Suppress("UNCHECKED_CAST")
+                    val droppedFiles = transferData as List<File>
                     
                     val apkFiles = droppedFiles.filter { it.extension.lowercase() == "apk" }
                     

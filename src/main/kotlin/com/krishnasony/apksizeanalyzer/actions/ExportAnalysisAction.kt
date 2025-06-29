@@ -37,13 +37,13 @@ class ExportAnalysisAction : AnAction() {
         
         // Choose export format
         val options = arrayOf("HTML Report", "CSV Data", "JSON Data")
-        val choice = Messages.showChooseDialog(
+        val choice = Messages.showDialog(
             project,
             "Choose export format:",
             "Export Analysis Results",
-            null,
             options,
-            options[0]
+            0,
+            Messages.getInformationIcon()
         )
         
         if (choice == -1) return

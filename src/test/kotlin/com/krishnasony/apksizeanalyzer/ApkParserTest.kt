@@ -20,7 +20,7 @@ class ApkParserTest {
     fun testApkAnalysis() {
         // This would require a sample APK file for testing
         // For now, we'll test the basic functionality
-        assertTrue("Parser should be initialized", parser != null)
+        assertNotNull("Parser should be initialized", parser)
     }
     
     @Test

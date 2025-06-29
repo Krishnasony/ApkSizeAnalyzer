@@ -41,13 +41,13 @@ class AnalyzeApkFileAction : AnAction() {
                     indicator.text = "Parsing APK structure..."
                     indicator.fraction = 0.5
                     
-                    val result = service.analyzeApk(apkFile)
+                    service.analyzeApk(apkFile)
                     
                     indicator.text = "Displaying results..."
                     indicator.fraction = 1.0
                     
                     // Show results in tool window
-                    showResults(project, apkFile.name)
+                    showResults(project)
                     
                 } catch (e: Exception) {
                     Messages.showErrorDialog(project, "Failed to analyze APK: ${e.message}", "Error")
@@ -63,7 +63,7 @@ class AnalyzeApkFileAction : AnAction() {
         e.presentation.isEnabled = isApkFile
     }
     
-    private fun showResults(project: Project, title: String) {
+    private fun showResults(project: Project) {
         val toolWindowManager = ToolWindowManager.getInstance(project)
         val toolWindow = toolWindowManager.getToolWindow("APK Size Analyzer")
         toolWindow?.show()
