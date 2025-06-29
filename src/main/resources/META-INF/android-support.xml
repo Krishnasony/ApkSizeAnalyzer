@@ -1,0 +1,11 @@
+<idea-plugin>
+    <!-- This file is loaded only when Android plugin is available -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Android-specific file type associations -->
+        <fileType name="APK" 
+                  implementationClass="com.krishnasony.apksizeanalyzer.file.ApkFileType"
+                  fieldName="INSTANCE" 
+                  language="" 
+                  extensions="apk"/>
+    </extensions>
+</idea-plugin>

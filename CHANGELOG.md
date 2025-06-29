@@ -5,15 +5,31 @@ All notable changes to the APK Size Analyzer plugin will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.1] - 2025-06-28
+## [1.0.1] - 2025-06-29
+
+### Added
+- **Enhanced APK Comparison**: Complete detailed comparison with 4 comprehensive tabs
+  - Overview: Total size, file count changes, and summary statistics
+  - File Changes: Individual file-level changes with visual status indicators
+  - Folder Changes: Directory-level size analysis
+  - Type Changes: File extension-based breakdown
+- **Improved UI**: Professional tabbed interface for better data organization
+- **Better Status Indicators**: Visual markers for added (➕), removed (➖), and modified (📝) files
+
+### Fixed
+- **UI Data Binding**: Fixed critical issue where analysis results weren't displayed in tables
+- **Duplicate Functionality**: Removed redundant "Browse APK" button, keeping only "Analyze APK"
+- **Component References**: Direct table updates instead of failed component searches
 
 ### Changed
 - **Extended IDE compatibility**: Now supports Android Studio/IntelliJ IDEA up to build 251.*
-- **Improved compatibility**: Fixed installation issues with newer Android Studio versions
+- **Enhanced Toolbar**: Cleaner interface with single analyze button and clear instructions
+- **Detailed Comparison**: Shows top 100 most significant changes sorted by impact
 
 ### Technical
 - Updated `untilBuild` range from `241.*` to `251.*`
-- Maintains backward compatibility with build 232+
+- Fixed table model updates using direct component references
+- Enhanced comparison algorithms with comprehensive change tracking
 
 ## [1.0.0] - 2025-06-28
 

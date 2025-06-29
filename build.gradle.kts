@@ -1,7 +1,7 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.20"
-    id("org.jetbrains.intellij") version "1.16.1"
+    id("org.jetbrains.kotlin.jvm") version "1.9.25"
+    id("org.jetbrains.intellij") version "1.17.4"
 }
 
 group = "com.krishnasony"
@@ -13,21 +13,20 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    implementation("com.google.code.gson:gson:2.10.1")
-    implementation("org.apache.commons:commons-compress:1.24.0")
+    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("org.apache.commons:commons-compress:1.26.1")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
 // Configure Gradle IntelliJ Plugin
 intellij {
-    version.set("2023.2.5")
+    version.set("2024.1.4")
     type.set("IC") // IntelliJ IDEA Community Edition
     
     plugins.set(listOf(
-        "android",
-        "gradle",
-        "java"
+        "java",
+        "gradle"
     ))
 }
 
@@ -42,7 +41,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("232")
+        sinceBuild.set("241")
         untilBuild.set("251.*")
     }
 
