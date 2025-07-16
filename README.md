@@ -63,13 +63,7 @@
 5. Select `apk-size-analyzer-plugin-1.0.0.zip`
 6. Restart the IDE
 
-### Future Installation Methods
-📋 **JetBrains Marketplace**: Will be available once submitted and approved
-📋 **GitHub Releases**: Will be available once repository is published
-2. Go to **File** → **Settings** → **Plugins**
-3. Click **⚙️** → **Install Plugin from Disk...**
-4. Select the downloaded ZIP file
-5. Restart the IDE
+### Available on Android Studio Marketplace
 
 ### Development Setup
 ```bash
